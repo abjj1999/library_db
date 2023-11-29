@@ -14,7 +14,7 @@ CREATE TABLE Book (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Costumer (
+CREATE TABLE Customer (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -31,21 +31,21 @@ CREATE TABLE Staff (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Costumer_Book (
+CREATE TABLE Customer_Book (
     id INT NOT NULL AUTO_INCREMENT,
-    costumer_id INT NOT NULL,
+    customer_id INT NOT NULL,
     book_id INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (costumer_id) REFERENCES Costumer(id),
+    FOREIGN KEY (customer_id) REFERENCES Customer(id),
     FOREIGN KEY (book_id) REFERENCES Book(id)
 );
 
-CREATE TABLE Costumer_fees (
+CREATE TABLE Customer_fees (
     id INT NOT NULL AUTO_INCREMENT,
-    costumer_id INT NOT NULL,
+    customer_id INT NOT NULL,
     fee INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (costumer_id) REFERENCES Costumer(id)
+    FOREIGN KEY (customer_id) REFERENCES Customer(id)
 );
 
 -- CREATE TABLE Store_Profile (
@@ -78,9 +78,9 @@ INSERT INTO Book (title, author, isbn, pages, available) VALUES ('To Kill a Mock
 INSERT INTO Book (title, author, isbn, pages, available) VALUES ('The Color Purple', 'Alice Walker', '9780156028356', 304, 1);
 INSERT INTO Book (title, author, isbn, pages, available) VALUES ('Ulysses', 'James Joyce', '9780679722762', 736, 1);
 
-INSERT INTO Costumer (name, email, password) VALUES ('John Doe1', 'joen', 'password');
-INSERT INTO Costumer (name, email, password) VALUES ('John Doe2', 'joen', 'password');
-INSERT INTO Costumer (name, email, password) VALUES ('John Doe3', 'joen', 'password');
+INSERT INTO Customer (name, email, password) VALUES ('John Doe1', 'joen', 'password');
+INSERT INTO Customer (name, email, password) VALUES ('John Doe2', 'joen', 'password');
+INSERT INTO Customer (name, email, password) VALUES ('John Doe3', 'joen', 'password');
 
 
 INSERT INTO Staff (name, email, password, role) VALUES ('John Doe1', 'ddj', 'password', 'librarian');
@@ -97,16 +97,16 @@ INSERT INTO Staff (name, email, password, role) VALUES ('John Doe7', 'ddj', 'pas
 INSERT INTO Staff (name, email, password, role) VALUES ('John Doe8', 'ddj', 'password', 'customer support');
 INSERT INTO Staff (name, email, password, role) VALUES ('John Doe9', 'ddj', 'password', 'customer support');
 
--- costumer_book
-INSERT INTO Costumer_Book (costumer_id, book_id) VALUES (1, 1);
-INSERT INTO Costumer_Book (costumer_id, book_id) VALUES (1, 2);
-INSERT INTO Costumer_Book (costumer_id, book_id) VALUES (1, 3);
+-- Customer_book
+INSERT INTO Customer_Book (Customer_id, book_id) VALUES (1, 1);
+INSERT INTO Customer_Book (Customer_id, book_id) VALUES (2, 2);
+INSERT INTO Customer_Book (Customer_id, book_id) VALUES (3, 3);
 
 
--- costumer_fees
-INSERT INTO Costumer_fees (costumer_id, fee) VALUES (1, 10);
-INSERT INTO Costumer_fees (costumer_id, fee) VALUES (2, 20);
-INSERT INTO Costumer_fees (costumer_id, fee) VALUES (3, 30);
+-- Customer_fees
+INSERT INTO Customer_fees (Customer_id, fee) VALUES (1, 10);
+INSERT INTO Customer_fees (Customer_id, fee) VALUES (2, 20);
+INSERT INTO Customer_fees (Customer_id, fee) VALUES (3, 30);
 
 
 -- delete customer 
