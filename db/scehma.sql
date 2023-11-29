@@ -5,12 +5,12 @@ CREATE DATABASE library;
 USE library;
 
 CREATE TABLE Book (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL IDENTITY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
     isbn VARCHAR(255) NOT NULL,
     pages INT NOT NULL,
-    available BOOLEAN NOT NULL,
+    available bit NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE Customer (
 );
 
 CREATE TABLE Staff (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL IDENTITY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE Customer_fees (
 -- }
 
 CREATE TABLE Movie (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL IDENTITY,
     title VARCHAR(255) NOT NULL,
     director VARCHAR(255) NOT NULL,
     genre VARCHAR(255) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE Movie (
 );
 
 CREATE TABLE Event (
-    id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL IDENTITY,
     title VARCHAR(255) NOT NULL,
     date DATE NOT NULL,
     time TIME NOT NULL,
